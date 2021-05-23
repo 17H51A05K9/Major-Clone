@@ -1,0 +1,46 @@
+{
+  "name": "nhs-app",
+  "version": "1.0.0",
+  "description": "![App picture](https://github.com/margiki/NHS-nodejs-webapp/blob/master/github_readme_photos/main_picture.jpg)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "engines": {
+    "node": "16.1.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.17.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.1",
+    "express-handlebars": "^3.0.0",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.15.1",
+    "express-validator": "^3.1.2",
+    "hbs": "^4.0.1",
+    "is-valid-date": "0.0.1",
+    "lodash": "^4.17.4",
+    "mongodb": "^3.6.8",
+    "mongoose": "^5.12.10",
+    "passport": "^0.3.2",
+    "passport-http": "^0.3.0",
+    "passport-local": "^1.0.0",
+    "serve-favicon": "^2.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreimargeloiu/Hospital-management-nodejs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/andreimargeloiu/Hospital-management-nodejs/issues"
+  },
+  "homepage": "https://github.com/andreimargeloiu/Hospital-management-nodejs#readme"
+}

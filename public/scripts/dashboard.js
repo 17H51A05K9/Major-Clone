@@ -161,6 +161,43 @@ $(document).ready(function() {
 
 	  });
   });
+  var diseasesAPI = URL + "/app/allBloods";
+   //console.log(diseasesAPI)
+    $.getJSON(diseasesAPI).done(function(allDiseases) {
+     //   console.log(allDiseases)
+         var diseasesScoresCheckboxes = [];
+
+         for(var disease in allDiseases) {
+             var diseaseScoreCheckbox = [];
+             let k=allDiseases[disease]
+            // console.log(k);
+             diseaseScoreCheckbox[0] = k['Id'];
+             diseaseScoreCheckbox[1] = k['BloodGroup']; // This is the score.
+            // console.log(diseaseScoreCheckbox);
+             diseasesScoresCheckboxes.push(diseaseScoreCheckbox)
+         }
+
+         $('#bloods').dataTable({
+          data: diseasesScoresCheckboxes,
+          columns:[{
+            title: "Hospital Id"
+          },
+        {
+          title:"Bloods"
+        }],
+          scrollY: '60vh',
+          scrollCollapse: true,
+          paging: false,
+          resposnive: true,
+          info: false,
+                  language: {
+                       searchPlaceholder: "Search blood...",
+                       sSearch: ""
+                }
+        });
+          var blood=diseasesScoresCheckboxes.length || 0;
+          $('#free-bloods').html(blood)
+     });
 });
 
 $("#patients-waiting").ready(function() {
@@ -247,7 +284,12 @@ $(function(){
            });
      });
 });
-
+$(function(){
+  $("body").on("click",'#bloods > tbody > tr', function(e){
+    var roomToBeOccupied = $(this).children('td')[0];
+    window.location.href=URL+"/app/getBloodPage/"+roomToBeOccupied.textContent;
+  })
+})
 $("body").on('dblclick', '#patients-in-hospital > tbody > tr', function() {
       var NHSnumber = $(this).children('td')[0];
       NHSnumber = NHSnumber.textContent;
